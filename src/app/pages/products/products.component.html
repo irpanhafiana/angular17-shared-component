@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="card">
+        <h5 class="card-header">Products</h5>
+        <div class="card-body">
+            <app-table [tableHead]="theadTemplte" [tableBody]="tBodyTemplate" [data]="products" [pagination]="true">
+                <ng-template #theadTemplte>
+                    <tr>
+                        <th>ID</th>
+                        <th>TITLE</th>
+                        <th>CATEGORY</th>
+                        <th>PRICE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </ng-template>
+
+                <ng-template let-product #tBodyTemplate>
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.title }}</td>
+                        <td>{{ product.category.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-success me-1">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </app-table>
+        </div>
+    </div>
+</div>
